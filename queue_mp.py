@@ -1,7 +1,7 @@
 import random
 import time
 import multiprocessing as mp
-from queue import Queue
+
 
 
 def capture(gb, ghost_pool, trap):
@@ -38,12 +38,7 @@ def main():
 
     ghostbuster = ["Peter Venkman", "Egon Spengler", "Raymond Stantz", "Winston Zeddemore"]
 
-    processes = [mp.Process(
-        target=capture,
-        args=(gb, ghost_pool, trap)
-        ) for gb in ghostbuster
-                ]
-
+    processes = [mp.Process(target=capture, args=(gb, ghost_pool, trap)) for gb in ghostbuster]
 
     for process in processes:
 

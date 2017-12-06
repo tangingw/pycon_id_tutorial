@@ -10,13 +10,12 @@ def wait_print(process_name):
 
 def main():
 
-    ghostbuster = [ "Peter Venkman", "Egon Spengler", "Raymond Stantz", "Winston Zeddemore"]
+    ghostbuster = ["Peter Venkman", "Egon Spengler", "Raymond Stantz", "Winston Zeddemore"]
     processes = [Process(target=wait_print, args=(gb,)) for gb in ghostbuster]
-    
+
     for process in processes:
         process.start()
 
-    
+
 if __name__ == "__main__":
     main()
-

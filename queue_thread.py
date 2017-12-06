@@ -39,19 +39,12 @@ def main():
 
     ghostbuster = ["Peter Venkman", "Egon Spengler", "Raymond Stantz", "Winston Zeddemore"]
 
-    threads = [th.Thread(
-        name=gb,
-        target=capture,
-        args=(ghost_pool, trap)
-        ) for gb in ghostbuster
-              ]
-
+    threads = [th.Thread(name=gb, target=capture, args=(ghost_pool, trap)) for gb in ghostbuster]
 
     for thread in threads:
 
         thread.setDaemon(True)
         thread.start()
-
 
     gen_ghost(20, ghost_pool)
 
